@@ -1,4 +1,4 @@
-<vg-player>
+<vg-player (onPlayerReady)="onPlayerReady($event)">
     <vg-overlay-play></vg-overlay-play>
     <vg-buffering></vg-buffering>
 
@@ -12,6 +12,9 @@
         <vg-playback-button></vg-playback-button>
 
         <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+
+        <span class="material-icons" (click)="jumpBack($event)">replay_10</span>
+        <span class="material-icons" (click)="jumpForward($event)">forward_10</span>
 
         <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
 
@@ -30,3 +33,10 @@
         <source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm">
     </video>
 </vg-player>
+
+<mat-grid-list cols="2" rowHeight="4:1">
+  <mat-grid-tile>Brightness:</mat-grid-tile>
+  <mat-grid-tile><mat-slider (input)="adjustBrightness($event)"></mat-slider></mat-grid-tile>
+  <mat-grid-tile>Contrast:</mat-grid-tile>
+  <mat-grid-tile><mat-slider (input)="adjustContrast($event)"></mat-slider></mat-grid-tile>
+</mat-grid-list>
