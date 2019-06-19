@@ -5,7 +5,7 @@ import {MatSliderModule} from '@angular/material/slider';
 
 
 @Component({
-  selector: 'app-video-player',
+  selector: 'app-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss']
 })
@@ -13,20 +13,24 @@ export class PlayerComponent implements OnInit {
   api: VgAPI;
   brightness: number;
   contrast: number;
+  filter: any;
 
   updateFilter() {
     this.filter = {filter: 'brightness(' + this.brightness + '%) contrast(' + this.contrast + '%)'};
+  }
+
+  ngOnInit() {
 
   }
 
   constructor() {
     this.brightness = 100;
     this.contrast = 100;
+    this.updateFilter();
   }
 
   onPlayerReady(api: VgAPI) {
       this.api = api;
-      this.updateFilter();
   }
 
   jumpBack(event) {
