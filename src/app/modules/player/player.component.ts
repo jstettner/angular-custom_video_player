@@ -12,7 +12,7 @@ import {MatSliderModule} from '@angular/material/slider';
 })
 export class PlayerComponent implements OnInit {
   api: VgAPI;
-  filter: any;
+  style: any;
   brightness: number;
   contrast: number;
 
@@ -23,7 +23,7 @@ export class PlayerComponent implements OnInit {
   }
 
   updateFilter() {
-    this.filter = {filter: 'brightness(' + this.brightness + '%) contrast(' + this.contrast + '%)'};
+    this.style = {filter: 'brightness(' + this.brightness + '%) contrast(' + this.contrast + '%)'};
     console.log(this.filter);
   }
 
