@@ -15,6 +15,8 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { EffectControllerComponent } from './effect-controller/effect-controller.component';
 
+import {HotkeyModule} from 'angular2-hotkeys';
+
 @NgModule({
   declarations: [
     PlayerComponent,
@@ -29,7 +31,8 @@ import { EffectControllerComponent } from './effect-controller/effect-controller
     BrowserAnimationsModule,
     MatSliderModule,
     MatGridListModule,
-    MatButtonModule
+    MatButtonModule,
+    HotkeyModule.forRoot()
   ],
   exports: [
     PlayerComponent,

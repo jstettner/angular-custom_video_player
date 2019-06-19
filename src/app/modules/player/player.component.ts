@@ -4,6 +4,8 @@ import {PlayerService} from './services/player.service';
 import {VgAPI} from 'videogular2/core';
 import {MatSliderModule} from '@angular/material/slider';
 
+import {HotkeysService, Hotkey} from 'angular2-hotkeys';
+
 
 @Component({
   selector: 'app-player',
@@ -16,7 +18,34 @@ export class PlayerComponent implements OnInit {
   brightness: number;
   contrast: number;
 
-  constructor(private _playerService: PlayerService) {
+  constructor(private _playerService: PlayerService, private _hotkeysService: HotkeysService) {
+    this._hotkeysService.add(new Hotkey('left', (event: KeyboardEvent): boolean => {
+        this.api.getDefaultMedia().currentTime -= 5;
+        return false;
+    }));
+    this._hotkeysService.add(new Hotkey('right', (event: KeyboardEvent): boolean => {
+        this.api.getDefaultMedia().currentTime += 5;
+        return false;
+    }));
+    this._hotkeysService.add(new Hotkey('up', (event: KeyboardEvent): boolean => {
+        this.api.volume += this.api.volume < 1 ? .1 : 0;
+        return false;
+    }));
+    this._hotkeysService.add(new Hotkey('down', (event: KeyboardEvent): boolean => {
+        this.api.volume -= this.api.volume > 0 ? .1 : 0;
+        return false;
+    }));
+    this._hotkeysService.add(new Hotkey('space', (event: KeyboardEvent): boolean => {
+        var state = this.api.getDefaultMedia().state;
+        if (state == 'paused') {
+          this.api.getDefaultMedia().play();
+        } else if(state == 'playing') {
+          this.api.getDefaultMedia().pause();
+        }
+
+        return false;
+    }));
+
     this.brightness = 100;
     this.contrast = 100;
     this.updateFilter();
@@ -42,11 +71,11 @@ export class PlayerComponent implements OnInit {
       this.api = api;
   }
 
-  jumpBack(event) {
+  jumpBack() {
     this.api.getDefaultMedia().currentTime -= 10;
   }
 
-  jumpForward(event) {
+  jumpForward() {
     this.api.getDefaultMedia().currentTime += 10;
   }
 }
