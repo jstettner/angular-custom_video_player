@@ -15,7 +15,7 @@ export class PlayerComponent implements OnInit {
   contrast: number;
 
   updateFilter() {
-    this.filter = {filter: 'brightness(' + this.brightness + '%) contrast(' +this.contrast + '%)'};
+    this.filter = {filter: 'brightness(' + this.brightness + '%) contrast(' + this.contrast + '%)'};
 
   }
 
