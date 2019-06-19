@@ -27,16 +27,36 @@
         <vg-fullscreen></vg-fullscreen>
     </vg-controls>
 
-    <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin>
+    <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin [ngStyle]="filter">
         <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
         <source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">
         <source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm">
     </video>
 </vg-player>
 
-<mat-grid-list cols="2" rowHeight="4:1">
+<mat-grid-list cols="3" rowHeight="4:1">
   <mat-grid-tile>Brightness:</mat-grid-tile>
-  <mat-grid-tile><mat-slider (input)="adjustBrightness($event)"></mat-slider></mat-grid-tile>
+  <mat-grid-tile>
+    <mat-slider
+      (input)="adjustBrightness($event)"
+      min="0"
+      max="200"
+      [value]="brightness"
+    ></mat-slider>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <span>{{brightness}}%</span>
+  </mat-grid-tile>
   <mat-grid-tile>Contrast:</mat-grid-tile>
-  <mat-grid-tile><mat-slider (input)="adjustContrast($event)"></mat-slider></mat-grid-tile>
+  <mat-grid-tile>
+    <mat-slider
+      (input)="adjustContrast($event)"
+      min="0"
+      max="200"
+      [value]="contrast"
+    ></mat-slider>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <span>{{contrast}}%</span>
+  </mat-grid-tile>
 </mat-grid-list>
