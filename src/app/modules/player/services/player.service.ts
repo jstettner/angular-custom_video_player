@@ -17,12 +17,10 @@ export class PlayerService {
   }
 
   updateBrightness(value) {
-    // this.brightness$ = value;
     this.brightnessSource.next(value);
   }
 
   updateContrast(value) {
-    // this.contrast$ = value;
     this.contrastSource.next(value);
   }
 }

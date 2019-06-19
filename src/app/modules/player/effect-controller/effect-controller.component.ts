@@ -33,4 +33,11 @@ export class EffectControllerComponent implements OnInit {
     this._playerService.updateContrast(event.value);
   }
 
+  resetBrightness() {
+    this._playerService.updateBrightness(100);
+  }
+
+  resetContrast() {
+    this._playerService.updateContrast(100);
+  }
 }

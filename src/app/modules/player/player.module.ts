@@ -11,6 +11,8 @@ import {VgBufferingModule} from 'videogular2/buffering';
 import { PlayerComponent } from './player.component';
 
 import {MatSliderModule, MatGridListModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+
 import { EffectControllerComponent } from './effect-controller/effect-controller.component';
 
 @NgModule({
@@ -26,7 +28,8 @@ import { EffectControllerComponent } from './effect-controller/effect-controller
     VgBufferingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonModule
   ],
   exports: [
     PlayerComponent,

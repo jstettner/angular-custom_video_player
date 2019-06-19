@@ -9,7 +9,7 @@
     ></mat-slider>
   </mat-grid-tile>
   <mat-grid-tile>
-    <span>{{brightness}}%</span>
+    <button mat-raised-button (click)="resetBrightness()">{{brightness}}%</button>
   </mat-grid-tile>
   <mat-grid-tile>Contrast:</mat-grid-tile>
   <mat-grid-tile>
@@ -21,6 +21,6 @@
     ></mat-slider>
   </mat-grid-tile>
   <mat-grid-tile>
-    <span>{{contrast}}%</span>
+    <button mat-raised-button (click)="resetContrast()">{{contrast}}%</button>
   </mat-grid-tile>
 </mat-grid-list>
