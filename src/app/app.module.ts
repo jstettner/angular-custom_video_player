@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { PlayerModule } from './modules/player/player.module'
+import { PlayerModule } from './modules/player/player.module';
 
 @NgModule({
   declarations: [

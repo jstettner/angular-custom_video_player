@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PlayerService} from './services/player.service';
 
 import {VgAPI} from 'videogular2/core';
 import {MatSliderModule} from '@angular/material/slider';
@@ -11,22 +12,31 @@ import {MatSliderModule} from '@angular/material/slider';
 })
 export class PlayerComponent implements OnInit {
   api: VgAPI;
+  filter: any;
   brightness: number;
   contrast: number;
-  filter: any;
 
-  updateFilter() {
-    this.filter = {filter: 'brightness(' + this.brightness + '%) contrast(' + this.contrast + '%)'};
-  }
-
-  ngOnInit() {
-
-  }
-
-  constructor() {
+  constructor(private _playerService: PlayerService) {
     this.brightness = 100;
     this.contrast = 100;
     this.updateFilter();
+  }
+
+  updateFilter() {
+    this.filter = {filter: 'brightness(' + this.brightness + '%) contrast(' + this.contrast + '%)'};
+    console.log(this.filter);
+  }
+
+  ngOnInit() {
+    this._playerService.brightness$.subscribe((data) => {
+      this.brightness = data;
+      this.updateFilter();
+    });
+
+    this._playerService.contrast$.subscribe((data) => {
+      this.contrast = data;
+      this.updateFilter();
+    });
   }
 
   onPlayerReady(api: VgAPI) {
@@ -40,15 +50,4 @@ export class PlayerComponent implements OnInit {
   jumpForward(event) {
     this.api.getDefaultMedia().currentTime += 10;
   }
-
-  adjustBrightness(event) {
-    this.brightness = event.value;
-    this.updateFilter();
-  }
-
-  adjustContrast(event) {
-    this.contrast = event.value;
-    this.updateFilter();
-  }
-
 }
