@@ -24,7 +24,6 @@ export class PlayerComponent implements OnInit {
 
   updateFilter() {
     this.style = {filter: 'brightness(' + this.brightness + '%) contrast(' + this.contrast + '%)'};
-    console.log(this.filter);
   }
 
   ngOnInit() {
