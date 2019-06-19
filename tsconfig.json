@@ -18,6 +18,20 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "player-lib": [
+        "dist/player-lib"
+      ],
+      "player-lib/*": [
+        "dist/player-lib/*"
+      ],
+      "player": [
+        "dist/player"
+      ],
+      "player/*": [
+        "dist/player/*"
+      ]
+    }
   }
 }
