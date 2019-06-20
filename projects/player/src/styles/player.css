@@ -12,9 +12,7 @@ vg-player .material-icons {
   color: white;
   line-height: 50px;
 }
-body {
-  background-color: #333333;
-  color: white;
+.effect-controller {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 10px;
+  font-size: 20px;
 }
