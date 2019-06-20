@@ -1,24 +1,49 @@
-# Player
+## Installing
+`npm install angular-video-player-plus videogular2@^6.4.0 angular2-hotkeys@^2.1.4 hammerjs@^2.0.8 material-icons@^0.3.1 @angular/material@^8.0.1 @angular/cdk@^8.0.1`
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
+## Setting Up
+``` javascript
+// app.module.ts
+import { PlayerModule } from 'angular-video-player-plus';
+...
+@NgModule({
+  ...
+  imports: [
+    ...,
+    PlayerModule
+  ],
+  ...
+})
+...
+```
 
-## Code scaffolding
+``` javascript
+// app.component.ts
+import { PlayerService } from 'angular-video-player-plus';
+...
+@Component({
+  ...
+  providers: [
+    ...,
+    PlayerService
+  ]
+})
+...
+```
 
-Run `ng generate component component-name --project player` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project player`.
-> Note: Don't forget to add `--project player` or else it will be added to the default project in your `angular.json` file. 
+## Implementing
+Include in your template:
+`<player> <YOUR VIDEO SOURCE> <player>`
 
-## Build
+You may also include the control panel:
+`<player-controller></player-controller>`
 
-Run `ng build player` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build player`, go to the dist folder `cd dist/player` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test player` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Including Styles
+If you want to add our styles to the player, in your styles.css file, add
+```css
+@import url("../node_modules/videogular2/fonts/videogular.css");
+@import url("../node_modules/material-icons/iconfont/material-icons.css");
+@import url("../node_modules/angular-video-player-plus/player.css");
+```
+For Slider support add hammer import to main.ts:
+`import 'hammerjs';`

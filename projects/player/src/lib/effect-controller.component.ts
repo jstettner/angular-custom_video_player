@@ -2,9 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PlayerService } from './player.service';
 
 @Component({
-  selector: 'app-effect-controller',
-  templateUrl: './effect-controller.component.html',
-  styleUrls: ['./effect-controller.component.scss']
+  selector: 'video-player-controller',
+  templateUrl: './effect-controller.component.html'
 })
 export class EffectControllerComponent implements OnInit {
   brightness: number;

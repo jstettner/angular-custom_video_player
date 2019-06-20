@@ -8,9 +8,8 @@ import {HotkeysService, Hotkey} from 'angular2-hotkeys';
 
 
 @Component({
-  selector: 'player',
-  templateUrl: './player.component.html',
-  styleUrls: ['./player.component.scss']
+  selector: 'video-player',
+  templateUrl: './player.component.html'
 })
 export class PlayerComponent implements OnInit {
   api: VgAPI;
