@@ -47,3 +47,32 @@ If you want to add our styles to the player, in your styles.css file, add
 ```
 For Slider support add hammer import to main.ts:
 `import 'hammerjs';`
+
+## Api
+You can access the native api of Videogular by using the following:
+``` javascript
+// app.component.ts
+import { PlayerService } from 'angular-video-player-plus';
+...
+@Component({
+  ...
+  providers: [
+    ...,
+    PlayerService
+  ]
+})
+...
+export class AppComponent implements AfterViewInit {
+  api: PlayerService;
+  ...
+  constructor(api: PlayerService) {
+    this.api = api;
+  }
+
+  // for example:
+  printTime() {
+    console.log(this.api.getApi().getDefaultMedia().currentTime);
+  }
+  ...
+}
+```
