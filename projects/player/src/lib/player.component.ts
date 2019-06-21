@@ -6,7 +6,6 @@ import {MatSliderModule} from '@angular/material/slider';
 
 import {HotkeysService, Hotkey} from 'angular2-hotkeys';
 
-
 @Component({
   selector: 'video-player',
   templateUrl: './player.component.html'

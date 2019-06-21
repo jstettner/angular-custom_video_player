@@ -16,3 +16,7 @@ vg-player .material-icons {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 20px;
 }
+
+vg-overlay-play .vg-overlay-play .overlay-play-container.vg-icon-play_arrow {
+  display: none !important;
+}
