@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import {VgAPI} from 'videogular2/core';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class PlayerService {
 
   brightness$ = this.brightnessSource.asObservable();
   contrast$ = this.contrastSource.asObservable();
+
+  api: VgAPI;
 
   constructor() {
     this.updateBrightness(100);
@@ -22,5 +25,9 @@ export class PlayerService {
 
   updateContrast(value) {
     this.contrastSource.next(value);
+  }
+
+  getApi() {
+    return this.api;
   }
 }

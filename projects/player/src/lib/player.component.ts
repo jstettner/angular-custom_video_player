@@ -68,6 +68,7 @@ export class PlayerComponent implements OnInit {
 
   onPlayerReady(api: VgAPI) {
       this.api = api;
+      this._playerService.api = this.api;
   }
 
   jumpBack() {

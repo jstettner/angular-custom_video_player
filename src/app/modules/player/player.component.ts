@@ -78,4 +78,8 @@ export class PlayerComponent implements OnInit {
   jumpForward() {
     this.api.getDefaultMedia().currentTime += 10;
   }
+
+  getApi() {
+    return this.api;
+  }
 }
